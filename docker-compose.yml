@@ -2,7 +2,7 @@ version: "3.7"
 services:
   php-fpm:
     build:
-      context: ./
+      context: ./php-fpm
       dockerfile: Dockerfile
     image: laravel-php-fpm
     container_name: "${APP_NAME}-php-fpm"
