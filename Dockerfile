@@ -1,5 +1,5 @@
 FROM php:8.0-fpm
-
+# COPY ./laravel_run_up.sh /var/www/laravel_run_up.sh
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -21,11 +21,12 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Create system user to run Composer and Artisan Commands
-RUN useradd -G www-data,root -u 1000 -d /home/laravel laravel
+RUN useradd -G www-data,root -u 1000 -m laravel
 RUN mkdir -p /home/$user/.composer && \
     chown -R laravel:laravel /home/laravel
 
 # Set working directory
 WORKDIR /var/www
+
 
 USER laravel
