@@ -14,6 +14,7 @@ services:
       - laravel
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    # command: /bin/sh /laravel_run_up.sh
 
   nginx:
     image: nginx:alpine

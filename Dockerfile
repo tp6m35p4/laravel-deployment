@@ -27,6 +27,6 @@ RUN mkdir -p /home/$user/.composer && \
 
 # Set working directory
 WORKDIR /var/www
-
+COPY php-fpm/laravel_run_up.sh /
 
 USER laravel
