@@ -1,4 +1,4 @@
-FROM php:8.1-cli
+FROM php:8.1-fpm-buster
 # COPY ./laravel_run_up.sh /var/www/laravel_run_up.sh
 
 # Install system dependencies
@@ -27,6 +27,6 @@ RUN mkdir -p /home/$user/.composer && \
 
 # Set working directory
 WORKDIR /var/www
-COPY laravel_run_up.sh /
+# COPY laravel_run_up.sh /
 
 USER laravel
