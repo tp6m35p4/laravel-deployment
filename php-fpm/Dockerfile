@@ -1,4 +1,4 @@
-FROM php:8.0-fpm
+FROM php:8.1-cli
 # COPY ./laravel_run_up.sh /var/www/laravel_run_up.sh
 
 # Install system dependencies
