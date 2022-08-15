@@ -20,8 +20,11 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# Install nodejs and npm
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt install nodejs
 # Create system user to run Composer and Artisan Commands
-RUN useradd -G www-data,root -u 1000 -m laravel
+RUN useradd -G www-data,root -u 1000 -m laravel -p laravel
 RUN mkdir -p /home/$user/.composer && \
     chown -R laravel:laravel /home/laravel
 
